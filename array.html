@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Array Elements</title>
+</head>
+<body>
+    <h1>Array Elements:</h1>
+    <ul id="arrayList"></ul>
+
+    <script>
+        // JavaScript code to display an array of elements
+        var arrayElements = ["Naini", "Sreeja", "Indu", "Shiva", "Nithu"];
+
+        var arrayList = document.getElementById("arrayList");
+        
+        for (var i = 0; i < arrayElements.length; i++) {
+            var listItem = document.createElement("li");
+            listItem.textContent = arrayElements[i];
+            arrayList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>

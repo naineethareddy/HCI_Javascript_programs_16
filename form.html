@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+    <h2>Form Validation</h2>
+
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="username">Username (at least 8 characters):</label>
+        <input type="text" id="username" name="username"><br>
+
+        <label for="password">Password (at least 8 characters):</label>
+        <input type="password" id="password" name="password"><br>
+
+        <label for="repassword">Re-enter Password:</label>
+        <input type="password" id="repassword" name="repassword"><br>
+
+        <label for="phone">Phone Number (at most 10 digits):</label>
+        <input type="text" id="phone" name="phone"><br>
+
+        <label for="pincode">Pin Code (at most 6 digits):</label>
+        <input type="text" id="pincode" name="pincode"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="error"></div>
+
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const repassword = document.getElementById("repassword").value;
+            const phone = document.getElementById("phone").value;
+            const pincode = document.getElementById("pincode").value;
+            const errorDiv = document.getElementById("error");
+
+            errorDiv.innerHTML = ""; // Clear previous error messages
+
+            if (username.length < 8) {
+                errorDiv.innerHTML += "Username should be at least 8 characters.<br>";
+            }
+
+            if (password.length < 8) {
+                errorDiv.innerHTML += "Password should be at least 8 characters.<br>";
+            }
+
+            if (password !== repassword) {
+                errorDiv.innerHTML += "Passwords do not match.<br>";
+            }
+
+            if (phone.length > 10) {
+                errorDiv.innerHTML += "Phone number should be at most 10 digits.<br>";
+            }
+
+            if (pincode.length > 6) {
+                errorDiv.innerHTML += "Pin code should be at most 6 digits.<br>";
+            }
+
+            if (errorDiv.innerHTML === "") {
+                // No errors, the form can be submitted
+                return true;
+            } else {
+                // Prevent the form from being submitted
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

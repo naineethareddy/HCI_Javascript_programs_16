@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reverse Array</title>
+</head>
+<body>
+    <h2>Reverse Array</h2>
+
+    <label for="inputArray">Enter elements separated by commas:</label>
+    <input type="text" id="inputArray">
+    <button onclick="reverseArray()">Reverse</button>
+
+    <p><strong>Reversed Array:</strong></p>
+    <p id="outputArray"></p>
+
+    <script>
+        function reverseArray() {
+            const inputArrayElement = document.getElementById("inputArray");
+            const outputArrayElement = document.getElementById("outputArray");
+
+            const inputString = inputArrayElement.value;
+            const inputArray = inputString.split(",").map(item => item.trim());
+
+            // Reverse the array
+            const reversedArray = inputArray.reverse();
+
+            // Display the reversed array
+            outputArrayElement.textContent = reversedArray.join(", ");
+        }
+    </script>
+</body>
+</html>
